@@ -1,6 +1,14 @@
+type addFunc = {
+  addLink: () => void;
+}
 
-export default function AddLinkComps() {
+
+export default function AddLinkComps({addLink}: addFunc) {
   return (
-    <div>AddLinkComps</div>
+    <div>
+      <button onClick={ addLink}>
+        Add link +
+      </button>
+    </div>
   )
 }

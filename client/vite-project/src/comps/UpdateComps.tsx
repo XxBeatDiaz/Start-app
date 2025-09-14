@@ -1,6 +1,12 @@
+type UpdateFunc = {
+  update: () => void;
+}
 
-export default function UpdateComps() {
+
+export default function UpdateComps({update}: UpdateFunc) {
   return (
-    <div>UpdateComps</div>
+    <div>
+      <button onClick={update}>update</button>
+    </div>
   )
 }

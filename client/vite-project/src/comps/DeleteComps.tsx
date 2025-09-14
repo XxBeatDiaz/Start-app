@@ -1,6 +1,14 @@
+type deleteBtn = {
+  deleteFunc: () => void
+}
 
-export default function DeleteComps() {
+export default function DeleteComps({deleteFunc}: deleteBtn) {
   return (
-    <div>DeleteComps</div>
+    <div>
+      <button onClick={deleteFunc}>
+      <img src="../../public/delete.png" alt="deleted" />
+    </button>
+    </div>
+    
   )
 }
