@@ -1,7 +1,6 @@
-// src/context/ProjectsContext.tsx
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { storage } from "../utils/storage";
 import type { Project } from "../types";
+import { fetchProjects, createProject, updateProjectApi, deleteProjectApi } from "../api/projects.ts";
 
 type ProjectsContextType = {
   projects: Project[];
@@ -18,37 +17,19 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     (async () => {
-      // קודם בודקים אם יש ב-localStorage (רק באתר)
-      // const cached = await storage.getProjects();
-      // if (cached.length > 0) {
-      //   setProjects(cached);
-      // }
-
       try {
-        // תמיד מושכים מהשרת
-        const res = await fetch("http://localhost:3131/workspace/getall");
-        const data: Project[] = await res.json();
+        const data = await fetchProjects();
         setProjects(data);
-
-        // שומרים רק באתר
-        // await storage.setProjects(data);
       } catch (err) {
-        console.error("Failed to fetch projects from server:", err);
+        console.error("Failed to fetch projects:", err);
       }
     })();
   }, []);
 
   const addProject = async (p: Project) => {
     try {
-      const res = await fetch("http://localhost:3131/workspace/create", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(p),
-      });
-      const saved = await res.json();
-      const next = [...projects, saved];
-      setProjects(next);
-      await storage.setProjects(next);
+      const saved = await createProject(p);
+      setProjects(prev => [...prev, saved]);
     } catch (err) {
       console.error("Failed to add project:", err);
     }
@@ -56,10 +37,8 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
 
   const deleteProject = async (id: string) => {
     try {
-      await fetch(`http://localhost:3131/workspace/delete/${id}`, { method: "DELETE" });
-      const next = projects.filter(pr => pr._id !== id);
-      setProjects(next);
-      await storage.setProjects(next);
+      await deleteProjectApi(id);
+      setProjects(prev => prev.filter(pr => pr._id !== id));
     } catch (err) {
       console.error("Failed to delete project:", err);
     }
@@ -67,15 +46,8 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
 
   const updateProject = async (p: Project) => {
     try {
-      const res = await fetch(`http://localhost:3131/workspace/update/${p._id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(p),
-      });
-      const updated = await res.json();
-      const next = projects.map(pr => (pr._id === updated._id ? updated : pr));
-      setProjects(next);
-      await storage.setProjects(next);
+      const updated = await updateProjectApi(p);
+      setProjects(prev => prev.map(pr => (pr._id === updated._id ? updated : pr)));
     } catch (err) {
       console.error("Failed to update project:", err);
     }
@@ -84,7 +56,9 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
   const getProjectById = (id?: string) => projects.find(pr => pr._id === id);
 
   return (
-    <ProjectsContext.Provider value={{ projects, addProject, deleteProject, updateProject, getProjectById }}>
+    <ProjectsContext.Provider
+      value={{ projects, addProject, deleteProject, updateProject, getProjectById }}
+    >
       {children}
     </ProjectsContext.Provider>
   );
