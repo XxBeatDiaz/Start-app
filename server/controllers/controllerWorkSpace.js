@@ -1,4 +1,3 @@
-// server/controllers/projectsController.js
 import { getAll, create, update, remove } from "../dal/crud.js"
 
 import path from "path";
@@ -29,7 +28,7 @@ export async function addProject(req, res) {
 
 export async function updateProject(req, res) {
     try {
-        const updated = await update(filePath, req.body.id, req.body);
+        const updated = await update(filePath, req.params.id, req.body);
         res.json(updated);
     } catch (err) {
         res.status(400).json({ error: err.message });
@@ -38,7 +37,7 @@ export async function updateProject(req, res) {
 
 export async function deleteProject(req, res) {
     try {
-        const deleted = await remove(filePath, req.body.id);
+        const deleted = await remove(filePath, req.params.id);
         res.json(deleted);
     } catch (err) {
         res.status(400).json({ error: err.message });
