@@ -53,7 +53,7 @@ async function update(path, id, updates) {
 // Delete
 async function remove(path, id) {
   let list = await read(path);
-  const index = list.findIndex(item => item.id === id);
+  const index = list.findIndex(item => item._id === id);
   if (index === -1) throw new Error("Item not found");
 
   const [removed] = list.splice(index, 1);
