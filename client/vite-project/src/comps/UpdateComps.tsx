@@ -1,12 +1,16 @@
-type UpdateFunc = {
-  update: () => void;
+import { Link } from 'react-router'
+import '../stayles/update.css'
+
+type Update = {
+  path: string
+  children: React.ReactNode
 }
 
 
-export default function UpdateComps({update}: UpdateFunc) {
+export default function UpdateComps({path, children}: Update) {
   return (
     <div>
-      <button onClick={update}>update</button>
+      <Link to={path}>{children}</Link>
     </div>
   )
 }

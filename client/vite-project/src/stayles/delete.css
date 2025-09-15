@@ -1,0 +1,16 @@
+.btn-delete{
+  width: 30px;
+  background: none;
+  display: flex;
+  justify-content: center;
+  border: 0;
+   cursor: pointer;
+}
+
+.img-btn{
+    width: 30px;
+}
+
+.img-btn:hover{
+    background-color: red;
+}

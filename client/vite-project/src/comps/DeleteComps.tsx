@@ -1,3 +1,5 @@
+import '../stayles/delete.css'
+
 type deleteBtn = {
   deleteFunc: () => void
 }
@@ -5,8 +7,8 @@ type deleteBtn = {
 export default function DeleteComps({deleteFunc}: deleteBtn) {
   return (
     <div>
-      <button onClick={deleteFunc}>
-      <img src="../../public/delete.png" alt="deleted" />
+      <button onClick={deleteFunc} className='btn-delete'>
+      <img src="../../public/delete.png" alt="deleted" className='img-btn'/>
     </button>
     </div>
     

@@ -1,0 +1,10 @@
+.btn-update{
+cursor: pointer;
+background-color: rgb(159, 186, 113);
+border-radius: 10px;
+}
+
+/* 
+.btn-update:hover{
+    background-color: red;
+} */
