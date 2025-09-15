@@ -1,15 +1,25 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { app, BrowserWindow } from 'electron'
-import * as backend from '../server/app.js'
+import startServer from '../server/app.js';
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function createWindow() {
   const win = new BrowserWindow({
-    fullscreen: true,
-    icon: __dirname + '/assets/Logo.png'
+    width: 1200,
+    height: 800,
+    fullscreenable: true,
+    icon: path.join(__dirname, './assets/Logo.png')
   });
-  win.loadFile('index.html');
+  console.log(path.join(__dirname, '../client/vite-project/dist/index.html'));
+  
+  win.loadFile(path.join(__dirname, '../client/vite-project/dist/index.html'));
 }
 
 app.whenReady().then(() => {
-  backend.start();
+  startServer();
   createWindow();
-});
+}).catch((e) => console.error("Failed to start server:", e));

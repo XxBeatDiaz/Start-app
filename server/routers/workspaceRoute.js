@@ -3,7 +3,6 @@ import {getProjects} from "../controllers/controllerWorkSpace.js"
 
 const router = Router();
 
-router.get("/getAll",getProjects)
-
+router.get("/getall",getProjects)
 
 export default router;
