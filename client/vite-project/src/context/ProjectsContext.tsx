@@ -1,6 +1,6 @@
 // src/context/ProjectsContext.tsx
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { storage, isElectron } from "../utils/storage";
+import { storage } from "../utils/storage";
 import type { Project } from "../types";
 
 type ProjectsContextType = {
@@ -19,10 +19,10 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     (async () => {
       // קודם בודקים אם יש ב-localStorage (רק באתר)
-      const cached = await storage.getProjects();
-      if (cached.length > 0) {
-        setProjects(cached);
-      }
+      // const cached = await storage.getProjects();
+      // if (cached.length > 0) {
+      //   setProjects(cached);
+      // }
 
       try {
         // תמיד מושכים מהשרת
@@ -31,7 +31,7 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
         setProjects(data);
 
         // שומרים רק באתר
-        await storage.setProjects(data);
+        // await storage.setProjects(data);
       } catch (err) {
         console.error("Failed to fetch projects from server:", err);
       }
