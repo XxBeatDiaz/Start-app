@@ -1,8 +1,13 @@
 // server/controllers/projectsController.js
 import { getAll, create, update, remove } from "../dal/crud.js"
 
-const filePath = "./db/workspaces.json"
+import path from "path";
+import { fileURLToPath } from "url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const filePath = path.join(__dirname, "../db/workspaces.json");
 
 export async function getProjects(req, res) {
     try {
