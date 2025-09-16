@@ -4,7 +4,7 @@ const path = "./db/Links.json";
 
 
 // Create
-async function createLink(item) {
+async function createLink(links) {
   const list = await read(path);
   list.push(item);
   await write(path, list);

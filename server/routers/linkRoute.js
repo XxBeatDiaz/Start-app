@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addLink,updateLink,deleteLink,getLinks,getLink } from "../controllers/controllerLink.js";
+import { addLink, updateLink, deleteLink, getLinks, getLink } from "../controllers/controllerLink.js";
 
 const router = Router();
 
