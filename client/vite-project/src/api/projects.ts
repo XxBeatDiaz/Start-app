@@ -8,7 +8,7 @@ export async function fetchProjectsApi(): Promise<Project[]> {
   return res.json();
 }
 
-export async function createProject(p: Project): Promise<Project> {
+export async function createProjectApi(p: Project): Promise<Project> {
   const res = await fetch(`${BASE_URL}/add`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
