@@ -1,72 +1,16 @@
 [
   {
-    "id": 1,
-    "name": "Workspace 1",
-    "description": "Description for workspace 1",
-    "links": [],
-    "paths": []
-  },
-  {
-    "id": 2,
-    "name": "Workspace 2",
-    "description": "Description for workspace 2",
-    "links": [],
-    "paths": []
-  },
-  {
-    "id": 3,
-    "name": "Workspace 3",
-    "description": "Description for workspace 3",
-    "links": [],
-    "paths": []
-  },
-  {
-    "id": 4,
-    "name": "Workspace 4",
-    "description": "Description for workspace 4",
-    "links": [],
-    "paths": []
-  },
-  {
-    "id": 5,
-    "name": "Workspace 5",
-    "description": "Description for workspace 5",
-    "links": [],
-    "paths": []
-  },
-  {
-    "id": 6,
-    "name": "Workspace 6",
-    "description": "Description for workspace 6",
-    "links": [],
-    "paths": []
-  },
-  {
-    "id": 7,
-    "name": "Workspace 7",
-    "description": "Description for workspace 7",
-    "links": [],
-    "paths": []
-  },
-  {
-    "id": 8,
-    "name": "Workspace 8",
-    "description": "Description for workspace 8",
-    "links": [],
-    "paths": []
-  },
-  {
-    "id": 9,
-    "name": "Workspace 9",
-    "description": "Description for workspace 9",
-    "links": [],
-    "paths": []
-  },
-  {
-    "wid": 10,
-    "name": "Workspace 10",
-    "description": "Description for workspace 10",
-    "links": [],
-    "paths": []
+    "_id": "a452cfb4-aa4d-4808-aa94-674b1612c177",
+    "name": "a",
+    "description": "aaa",
+    "filePaths": [
+      "1"
+    ],
+    "webLinks": [
+      "fd75dfc5-8e18-49af-8db8-e43dbef7e0e5",
+      "2",
+      "3"
+    ],
+    "createdAt": 1758017099181
   }
 ]

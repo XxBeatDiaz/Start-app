@@ -1,6 +1,6 @@
 import { write, read } from "./fs.js";
 
-const path = "./db/paths.json";
+const path = "../server/db/paths.json";
 
 
 // Create
@@ -40,7 +40,7 @@ async function removePath(id) {
 //Get by id
 async function getPathById(id) {
     const list = await read(path);
-    const item = list.find(i => i.id == id); 
+    const item = list.find(i => i._id == id); 
     if (!item) return false;
     return item;
 }

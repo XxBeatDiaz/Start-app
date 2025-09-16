@@ -1,6 +1,6 @@
 import { write, read } from "./fs.js";
 
-const path = "./db/Links.json";
+const path = "../server/db/Links.json";
 
 
 // Create
@@ -40,7 +40,7 @@ async function removeLink(id) {
 //Get by id
 async function getLinkById(id) {
   const list = await read(path);
-  const item = list.find(i => i.id == id);
+  const item = list.find(i => i._id == id);
   if (!item) return false;
   return item;
 }

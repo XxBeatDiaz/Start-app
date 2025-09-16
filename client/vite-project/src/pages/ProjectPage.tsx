@@ -15,7 +15,7 @@ export default function ProjectPage() {
       <header className="project-header">
         <h2>{project.name}</h2>
         <button className="danger" onClick={() => { if (project._id) { deleteProject(project._id); navigate('/projects'); } }}>Delete Project</button>
-        <button className="btn-secondary small">Open all</button>
+        <button className="btn-secondary small" onClick={() => { if (project._id) { window.electronAPI.openAllProjectItems(project._id); } }}>Open all</button>
       </header>
 
       <section className="project-details">

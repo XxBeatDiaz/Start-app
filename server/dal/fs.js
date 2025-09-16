@@ -2,10 +2,10 @@ import fs from "fs/promises";
 
 // קריאה
 async function read(path) {
-    console.log("Reading JSON data from:", path);
-    try {
-    const data = await fs.readFile(path, "utf-8");
-    const json = JSON.parse(data);
+  
+  try {
+      const data = await fs.readFile(path, "utf-8");
+      const json = JSON.parse(data);
     return Array.isArray(json) ? json : [];
 } catch (error) {
     if (error.code === "ENOENT") {
