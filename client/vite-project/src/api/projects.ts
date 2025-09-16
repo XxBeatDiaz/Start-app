@@ -8,10 +8,10 @@ export async function fetchProjectsApi(): Promise<Project[]> {
   return res.json();
 }
 
-export async function createProjectApi(p: Project): Promise<Project> {
-  const res = await fetch(`${BASE_URL}/add-project`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+export async function createProject(p: Project): Promise<Project> {
+  const res = await fetch(`${BASE_URL}/add`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(p),
   });
   if (!res.ok) throw new Error('Failed to create project');
@@ -29,8 +29,8 @@ export async function updateProjectApi(p: Project): Promise<Project> {
 }
 
 export async function deleteProjectApi(id: string): Promise<void> {
-  const res = await fetch(`${BASE_URL}/delete/${id}`, {
-    method: 'DELETE',
+  const res = await fetch(`${BASE_URL}/delete/${id}`, {   
+    method: "DELETE",
   });
   if (!res.ok) throw new Error('Failed to delete project');
 }
