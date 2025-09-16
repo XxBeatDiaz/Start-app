@@ -1,16 +1,19 @@
 [
   {
     "_id": "a452cfb4-aa4d-4808-aa94-674b1612c177",
-    "name": "a",
+    "name": "jjjיחניחניחנj",
     "description": "aaa",
     "filePaths": [
-      "1"
+      {"name":"cscs","path":"sdasdasdf"}
     ],
     "webLinks": [
       "fd75dfc5-8e18-49af-8db8-e43dbef7e0e5",
       "2",
       "3"
     ],
-    "createdAt": 1758017099181
+    "createdAt": 1758017099181,
+    "url": [
+      {"name":"dsds","url":"https://chatgpt.com/"},
+    ]
   }
 ]

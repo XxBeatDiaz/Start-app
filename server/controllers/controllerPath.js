@@ -1,10 +1,10 @@
-import { getAllPath,createPath,updatePath,removePath,getPathById } from "../dal/crudPath.js";
+import { getAllPaths,createPath,updatePath,removePath,getPathById } from "../dal/crudPath.js";
 
 
 
 export async function getPaths(req, res) {
     try {
-        const projects = await getAllPath();
+        const projects = await getAllPaths();
         res.json(projects);
     } catch (err) {
         res.status(500).json({ error: err.message });
