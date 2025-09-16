@@ -30,8 +30,8 @@ export async function updateProject(req, res) {
 
 export async function deleteProject(req, res) {
     try {
-        const deleted = await removeWorkspace(req.params.id);
-
+        const {id} = req.params;     
+        const deleted = await removeWorkspace(id);
         res.json(deleted);
     } catch (err) {
         res.status(400).json({ error: err.message });
