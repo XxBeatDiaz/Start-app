@@ -8,5 +8,4 @@ router.post("/add", addProject)
 router.delete("/delet:id", deleteProject)
 router.put("/update:id", updateProject)
 
-
 export default router;

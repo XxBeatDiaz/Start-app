@@ -1,62 +1,62 @@
 [
     {
-        "wid": 1,
+        "id": 1,
         "name": "Workspace 1",
         "description": "Description for workspace 1",
         "links": [],
         "paths": []
     },
     {
-        "wid": 2,
+        "id": 2,
         "name": "Workspace 2",
         "description": "Description for workspace 2",
         "links": [],
         "paths": []
     },
     {
-        "wid": 3,
+        "id": 3,
         "name": "Workspace 3",
         "description": "Description for workspace 3",
         "links": [],
         "paths": []
     },
     {
-        "wid": 4,
+        "id": 4,
         "name": "Workspace 4",
         "description": "Description for workspace 4",
         "links": [],
         "paths": []
     },
     {
-        "wid": 5,
+        "id": 5,
         "name": "Workspace 5",
         "description": "Description for workspace 5",
         "links": [],
         "paths": []
     },
     {
-        "wid": 6,
+        "id": 6,
         "name": "Workspace 6",
         "description": "Description for workspace 6",
         "links": [],
         "paths": []
     },
     {
-        "wid": 7,
+        "id": 7,
         "name": "Workspace 7",
         "description": "Description for workspace 7",
         "links": [],
         "paths": []
     },
     {
-        "wid": 8,
+        "id": 8,
         "name": "Workspace 8",
         "description": "Description for workspace 8",
         "links": [],
         "paths": []
     },
     {
-        "wid": 9,
+        "id": 9,
         "name": "Workspace 9",
         "description": "Description for workspace 9",
         "links": [],
