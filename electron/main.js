@@ -22,7 +22,6 @@ function createWindow() {
     }
   });
 
-  win.webContents.openDevTools();
   win.loadFile(path.join(__dirname, '../client/vite-project/dist/index.html'));
 }
 
@@ -36,28 +35,23 @@ ipcMain.on("open-all-project-items", async (event, projectId) => {
     return;
   }
 
-  const pathsIds = project.filePaths;
-  const linksIds = project.webLinks;
+  const paths = project.filePaths;
+  const links = project.webLinks;
 
-  for (const pathId of pathsIds) {
+  for (const pathItem of paths) {
     try {
-      const pathItem = await getPathById(pathId);
+
       shell.openPath(pathItem.path).catch(err => console.error(err));
     } catch (error) {
-      console.error(`Failed to open path ID ${pathId}:`, error);
+      console.error(`Failed to open path ${pathItem.path}:`, error);
     }
   }
 
-  for (const linkId of linksIds) {
-    console.log("Opening link ID:", linkId);
-    
+  for (const linkItem of links) {
     try {
-      const linkItem = await getLinkById(linkId);
-      console.log("Link item:", linkItem);
-      
       shell.openExternal(linkItem.url).catch(err => console.error(err));
     } catch (error) {
-      console.error(`Failed to open link ID ${linkId}:`, error);
+      console.error(`Failed to open link ${linkItem.url}:`, error);
     }
   }
 });

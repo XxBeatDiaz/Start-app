@@ -1,7 +1,7 @@
-import { useParams, useNavigate } from 'react-router';
-import { useProjects } from '../context/ProjectsContext';
-import { useEffect, useState } from 'react';
-import type { Project, filePaths, webLinks } from '../types';
+import { useParams, useNavigate } from "react-router";
+import { useProjects } from "../context/ProjectsContext";
+import { useEffect, useState } from "react";
+import type { Project, filePaths, webLinks } from "../types";
 
 type LocalLink = webLinks & { _uid: string };
 type LocalFile = filePaths & { _uid: string };
@@ -13,18 +13,34 @@ export default function ProjectPage() {
 
   const project: Project | undefined = getProjectById(id);
 
-  const [name, setName] = useState<string>(project?.name || '');
-  const [description, setDescription] = useState<string>(project?.description || '');
-  const [links, setLinks] = useState<LocalLink[]>(() => (project?.webLinks || []).map(l => ({ ...l, _uid: crypto.randomUUID() })));
-  const [files, setFiles] = useState<LocalFile[]>(() => (project?.filePaths || []).map(f => ({ ...f, _uid: crypto.randomUUID() })));
+  const [name, setName] = useState<string>(project?.name || "");
+  const [description, setDescription] = useState<string>(
+    project?.description || ""
+  );
+  const [links, setLinks] = useState<LocalLink[]>(() =>
+    (project?.webLinks || []).map((l) => ({ ...l, _uid: crypto.randomUUID() }))
+  );
+  const [files, setFiles] = useState<LocalFile[]>(() =>
+    (project?.filePaths || []).map((f) => ({ ...f, _uid: crypto.randomUUID() }))
+  );
   const [editing, setEditing] = useState<boolean>(false);
   const [changed, setChanged] = useState<boolean>(false);
 
   useEffect(() => {
-    setName(project?.name || '');
-    setDescription(project?.description || '');
-    setLinks((project?.webLinks || []).map(l => ({ ...l, _uid: crypto.randomUUID() })));
-    setFiles((project?.filePaths || []).map(f => ({ ...f, _uid: crypto.randomUUID() })));
+    setName(project?.name || "");
+    setDescription(project?.description || "");
+    setLinks(
+      (project?.webLinks || []).map((l) => ({
+        ...l,
+        _uid: crypto.randomUUID(),
+      }))
+    );
+    setFiles(
+      (project?.filePaths || []).map((f) => ({
+        ...f,
+        _uid: crypto.randomUUID(),
+      }))
+    );
     setEditing(false);
     setChanged(false);
   }, [project?._id]);
@@ -32,29 +48,43 @@ export default function ProjectPage() {
   if (!project) return <p>Project not found.</p>;
 
   const handleAddLink = () => {
-    const newLink: LocalLink = { name: '', url: '', createdAt: Date.now(), _uid: crypto.randomUUID() };
-    setLinks(prev => [...prev, newLink]);
+    const newLink: LocalLink = {
+      name: "",
+      url: "",
+      createdAt: Date.now(),
+      _uid: crypto.randomUUID(),
+    };
+    setLinks((prev) => [...prev, newLink]);
     setChanged(true);
   };
   const handleRemoveLink = (uid: string) => {
-    setLinks(prev => prev.filter(l => l._uid !== uid));
+    setLinks((prev) => prev.filter((l) => l._uid !== uid));
     setChanged(true);
   };
 
   const handleAddFile = () => {
-    const newFile: LocalFile = { name: '', path: '', createdAt: Date.now(), _uid: crypto.randomUUID() };
-    setFiles(prev => [...prev, newFile]);
+    const newFile: LocalFile = {
+      name: "",
+      path: "",
+      createdAt: Date.now(),
+      _uid: crypto.randomUUID(),
+    };
+    setFiles((prev) => [...prev, newFile]);
     setChanged(true);
   };
   const handleRemoveFile = (uid: string) => {
-    setFiles(prev => prev.filter(f => f._uid !== uid));
+    setFiles((prev) => prev.filter((f) => f._uid !== uid));
     setChanged(true);
   };
 
   const handleSave = async () => {
     if (!project._id) return;
-    const cleanLinks: webLinks[] = links.map(({ _uid, ...rest }) => ({ ...rest }));
-    const cleanFiles: filePaths[] = files.map(({ _uid, ...rest }) => ({ ...rest }));
+    const cleanLinks: webLinks[] = links.map(({ _uid, ...rest }) => ({
+      ...rest,
+    }));
+    const cleanFiles: filePaths[] = files.map(({ _uid, ...rest }) => ({
+      ...rest,
+    }));
 
     const updated: Project = {
       ...project,
@@ -77,11 +107,17 @@ export default function ProjectPage() {
             <input
               type="text"
               value={name}
-              onChange={e => { setName(e.target.value); setChanged(true); }}
+              onChange={(e) => {
+                setName(e.target.value);
+                setChanged(true);
+              }}
             />
             <textarea
               value={description}
-              onChange={e => { setDescription(e.target.value); setChanged(true); }}
+              onChange={(e) => {
+                setDescription(e.target.value);
+                setChanged(true);
+              }}
             />
           </>
         ) : (
@@ -92,24 +128,31 @@ export default function ProjectPage() {
         )}
 
         <div className="header-actions">
-          <button className="btn-secondary small" onClick={() => setEditing(!editing)}>
-            {editing ? 'Cancel' : <img src="edit.png" alt="edit" width={30} />}
+          <button
+            className="btn-secondary small"
+            onClick={() => setEditing(!editing)}
+          >
+            {editing ? "Cancel" : <img src="edit.png" alt="edit" width={30} />}
           </button>
           <button
             className="danger small"
             onClick={() => {
               if (project._id) {
                 deleteProject(project._id);
-                navigate('/');
+                navigate("/");
               }
             }}
           >
             Delete Project
           </button>
-          <button className="btn-secondary small" onClick={() => {
-            links.forEach(l => l.url && window.open(l.url, '_blank'));
-            files.forEach(f => f.path && (window as any).api?.openPath?.(f.path));
-          }}>
+          <button
+            className="btn-secondary small"
+            onClick={() => {
+              if (project._id) {
+                window.electronAPI.openAllProjectItems(project._id);
+              }
+            }}
+          >
             Open all
           </button>
         </div>
@@ -117,11 +160,16 @@ export default function ProjectPage() {
 
       <section className="links-list">
         <h3>
-          Links {editing && <button className="btn-icon" onClick={handleAddLink}>➕</button>}
+          Links{" "}
+          {editing && (
+            <button className="btn-icon" onClick={handleAddLink}>
+              ➕
+            </button>
+          )}
         </h3>
         {links.length > 0 ? (
           <ul>
-            {links.map(link => (
+            {links.map((link) => (
               <li key={link._uid} className="item-row">
                 {editing ? (
                   <>
@@ -129,8 +177,14 @@ export default function ProjectPage() {
                       type="text"
                       placeholder="Name"
                       value={link.name}
-                      onChange={e => {
-                        setLinks(prev => prev.map(l => l._uid === link._uid ? { ...l, name: e.target.value } : l));
+                      onChange={(e) => {
+                        setLinks((prev) =>
+                          prev.map((l) =>
+                            l._uid === link._uid
+                              ? { ...l, name: e.target.value }
+                              : l
+                          )
+                        );
                         setChanged(true);
                       }}
                     />
@@ -138,29 +192,46 @@ export default function ProjectPage() {
                       type="url"
                       placeholder="URL"
                       value={link.url}
-                      onChange={e => {
-                        setLinks(prev => prev.map(l => l._uid === link._uid ? { ...l, url: e.target.value } : l));
+                      onChange={(e) => {
+                        setLinks((prev) =>
+                          prev.map((l) =>
+                            l._uid === link._uid
+                              ? { ...l, url: e.target.value }
+                              : l
+                          )
+                        );
                         setChanged(true);
                       }}
                     />
-                    <button onClick={() => handleRemoveLink(link._uid)}>➖</button>
+                    <button onClick={() => handleRemoveLink(link._uid)}>
+                      ➖
+                    </button>
                   </>
                 ) : (
-                  <a href={link.url} target="_blank" rel="noopener noreferrer">{link.name || link.url}</a>
+                  <a href={link.url} target="_blank" rel="noopener noreferrer">
+                    {link.name || link.url}
+                  </a>
                 )}
               </li>
             ))}
           </ul>
-        ) : <p>No links yet.</p>}
+        ) : (
+          <p>No links yet.</p>
+        )}
       </section>
 
       <section className="files-list">
         <h3>
-          Files {editing && <button className="btn-icon" onClick={handleAddFile}>➕</button>}
+          Files{" "}
+          {editing && (
+            <button className="btn-icon" onClick={handleAddFile}>
+              ➕
+            </button>
+          )}
         </h3>
         {files.length > 0 ? (
           <ul>
-            {files.map(file => (
+            {files.map((file) => (
               <li key={file._uid} className="item-row">
                 {editing ? (
                   <>
@@ -168,8 +239,14 @@ export default function ProjectPage() {
                       type="text"
                       placeholder="Name"
                       value={file.name}
-                      onChange={e => {
-                        setFiles(prev => prev.map(f => f._uid === file._uid ? { ...f, name: e.target.value } : f));
+                      onChange={(e) => {
+                        setFiles((prev) =>
+                          prev.map((f) =>
+                            f._uid === file._uid
+                              ? { ...f, name: e.target.value }
+                              : f
+                          )
+                        );
                         setChanged(true);
                       }}
                     />
@@ -177,28 +254,44 @@ export default function ProjectPage() {
                       type="text"
                       placeholder="Path"
                       value={file.path}
-                      onChange={e => {
-                        setFiles(prev => prev.map(f => f._uid === file._uid ? { ...f, path: e.target.value } : f));
+                      onChange={(e) => {
+                        setFiles((prev) =>
+                          prev.map((f) =>
+                            f._uid === file._uid
+                              ? { ...f, path: e.target.value }
+                              : f
+                          )
+                        );
                         setChanged(true);
                       }}
                     />
-                    <button onClick={() => handleRemoveFile(file._uid)}>➖</button>
+                    <button onClick={() => handleRemoveFile(file._uid)}>
+                      ➖
+                    </button>
                   </>
                 ) : (
-                  <span onClick={() => (window as any).api?.openPath?.(file.path)} className="file-link">
+                  <span
+                    onClick={() => (window as any).api?.openPath?.(file.path)}
+                    className="file-link"
+                  >
                     {file.name || file.path}
                   </span>
                 )}
               </li>
             ))}
           </ul>
-        ) : <p>No files yet.</p>}
+        ) : (
+          <p>No files yet.</p>
+        )}
       </section>
 
       {changed && (
         <div className="save-bar">
-          <button className="btn-primary" onClick={handleSave}>Save Changes</button>
+          <button className="btn-primary" onClick={handleSave}>
+            Save Changes
+          </button>
         </div>
       )}
-    </div>)
-};
+    </div>
+  );
+}

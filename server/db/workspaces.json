@@ -1,19 +1,22 @@
 [
   {
-    "_id": "a452cfb4-aa4d-4808-aa94-674b1612c177",
-    "name": "jjjיחניחניחנj",
-    "description": "aaa",
+    "_id": "476c2e88-a154-4bf2-9188-76657c060444",
+    "name": "avi",
+    "description": "aviel",
     "filePaths": [
-      {"name":"cscs","path":"sdasdasdf"}
+      {
+        "name": "negev",
+        "path": "C:\\Users\\itzhak\\Desktop\\Codkod\\Negev",
+        "createdAt": 1758035354018
+      }
     ],
     "webLinks": [
-      "fd75dfc5-8e18-49af-8db8-e43dbef7e0e5",
-      "2",
-      "3"
+      {
+        "name": "Google",
+        "url": "https://www.google.com/",
+        "createdAt": 1758035356521
+      }
     ],
-    "createdAt": 1758017099181,
-    "url": [
-      {"name":"dsds","url":"https://chatgpt.com/"},
-    ]
+    "createdAt": 1758035359250
   }
 ]
