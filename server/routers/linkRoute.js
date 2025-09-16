@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { addLink,updateLink,deleteLink,getLinks,getLink } from "../controllers/controllerLink.js";
+
 const router = Router();
 
 router.get("/get-all", getLinks)

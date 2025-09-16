@@ -4,8 +4,10 @@ import { getProjects, addProject, deleteProject, updateProject ,getWorkspace} fr
 const router = Router();
 
 router.get("/get-all", getProjects)
+
 router.get("/get/:id", getWorkspace)
 router.post("/add", addProject)
+
 router.delete("/delete/:id", deleteProject)
 router.put("/update/:id", updateProject)
 
