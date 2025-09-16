@@ -1,0 +1,27 @@
+{
+  "name": "start-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build:react": "cd client/vite-project && npm run build",
+    "copy-react-build": "xcopy /E /I /Y client\\vite-project\\dist electron-main\\resources\\app\\dist",
+    "build:electron": "electron-builder",
+    "build:all": "npm run build:react && npm run copy-react-build && npm run build:electron"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XxBeatDiaz/Start-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XxBeatDiaz/Start-app/issues"
+  },
+  "homepage": "https://github.com/XxBeatDiaz/Start-app#readme",
+  "description": "",
+  "devDependencies": {
+    "electron": "^38.1.1",
+    "electron-builder": "^26.0.12"
+  }
+}

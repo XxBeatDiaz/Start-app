@@ -1,12 +1,12 @@
 {
-  "devDependencies": {
-    "electron": "^38.1.0"
-  },
   "name": "electron",
   "version": "1.0.0",
   "main": "main.js",
   "type": "module",
-  "icon": "./assets/Logo.png",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
   "dependencies": {
     "boolean": "^3.2.0",
     "buffer-crc32": "^0.2.13",
@@ -67,11 +67,27 @@
     "wrappy": "^1.0.2",
     "yauzl": "^2.10.0"
   },
-  "scripts": {
-    "start": "electron ."
+  "devDependencies": {
+    "electron": "^38.1.0",
+    "electron-builder": "^24.13.3"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "build": {
+    "appId": "com.yourapp.electron",
+    "productName": "StartApp",
+    "directories": {
+      "output": "dist",
+      "buildResources": "assets"
+    },
+    "files": [
+      "**/*",
+      "../client/vite-project/dist/**/*",
+      "../server/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/Logo.png"
+    }
+  }
 }

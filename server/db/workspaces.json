@@ -1,25 +1,5 @@
 [
   {
-    "_id": "476c2e88-a154-4bf2-9188-76657c060444",
-    "name": "avi",
-    "description": "aviel",
-    "filePaths": [
-      {
-        "name": "negev",
-        "path": "C:\\Users\\itzhak\\Desktop\\Codkod\\Negev",
-        "createdAt": 1758035354018
-      }
-    ],
-    "webLinks": [
-      {
-        "name": "Google",
-        "url": "https://www.google.com/",
-        "createdAt": 1758035356521
-      }
-    ],
-    "createdAt": 1758035359250
-  },
-  {
     "_id": "077fa34f-9c96-4ad2-935c-6a67bec9c539",
     "name": "פםדא",
     "description": "",
