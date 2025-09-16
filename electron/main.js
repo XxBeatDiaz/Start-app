@@ -22,7 +22,6 @@ function createWindow() {
     }
   });
 
-  win.webContents.openDevTools();
   win.loadFile(path.join(__dirname, '../client/vite-project/dist/index.html'));
 }
 
