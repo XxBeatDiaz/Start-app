@@ -4,9 +4,9 @@ import { getProjects, addProject, deleteProject, updateProject } from "../contro
 const router = Router();
 
 router.get("/get-all", getProjects)
-router.post("/add-project", addProject)
-router.delete("/delet-eproject:id", deleteProject)
-router.put("/update-project:id", updateProject)
+router.post("/add", addProject)
+router.delete("/delet:id", deleteProject)
+router.put("/update:id", updateProject)
 
 
 export default router;

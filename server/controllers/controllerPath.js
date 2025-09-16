@@ -23,7 +23,7 @@ export async function addPath(req, res) {
 
 export async function updatePath(req, res) {
     try {
-        const updated = await update(filePath, req.body.id, req.body);
+        const updated = await update(filePath, req.params.id, req.body);
         res.json(updated);
     } catch (err) {
         res.status(400).json({ error: err.message });
@@ -32,7 +32,7 @@ export async function updatePath(req, res) {
 
 export async function deletePath(req, res) {
     try {
-        const deleted = await remove(filePath, req.body.id);
+        const deleted = await remove(filePath, req.params.id);
         res.json(deleted);
     } catch (err) {
         res.status(400).json({ error: err.message });

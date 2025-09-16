@@ -3,9 +3,9 @@ import { addLink,updateLink,deleteLink,getLinks } from "../controllers/controlle
 const router = Router();
 
 router.get("/getall", getLinks)
-router.post("/addlink", addLink)
-router.delete("/deletelink", deleteLink)
-router.put("/updatelinke", updateLink)
+router.post("/add", addLink)
+router.delete("/delete", deleteLink)
+router.put("/update", updateLink)
 
 
 export default router;
