@@ -4,12 +4,20 @@ const path = "../server/db/Links.json";
 
 
 // Create
-async function createLink(item) {
+async function createLink(newLinks) {
   const list = await read(path);
-  list.push(item);
-  await write(path, list);
-  return item;
+  // שמירה רק על פריטים עם URL שלא קיימים כבר ברשימה
+  const filteredNewLinks = newLinks.filter(
+    newItem => !list.some(item => item.url === newItem.url)
+  );
+  const merged = [...list, ...filteredNewLinks];
+
+  await write(path, merged);
+  return merged;
 }
+
+
+
 
 // Read
 async function getAllLinks() {
@@ -17,15 +25,17 @@ async function getAllLinks() {
 }
 
 // Update
-async function updateLinkById(id, updates) {
+async function updateLinkByUrl(url, updates) {
   const list = await read(path);
-  const index = list.findIndex(item => item.id == id);
-  if (index === -1) throw new Error("Item not found");
-
-  list[index] = { ...list[index], ...updates };
+  const item = list.find(item => item.url === url);
+  if (!item) throw new Error("Item not found");
+  if (updates.name !== undefined) item.name = updates.name;
+  if (updates.url !== undefined) item.url = updates.url;
   await write(path, list);
-  return list[index];
+
+  return item;
 }
+
 
 // Delete
 async function removeLink(id) {
@@ -48,7 +58,7 @@ async function getLinkById(id) {
 export {
   createLink,
   getAllLinks,
-  updateLinkById,
+  updateLinkByUrl,
   removeLink,
   getLinkById
 };

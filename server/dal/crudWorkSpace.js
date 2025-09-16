@@ -7,7 +7,7 @@ async function createWorkspace(item) {
   const list = await read(path);
   list.push(item);
   await write(path, list);
-  return item; 
+  return item;
 }
 
 // Read
@@ -18,13 +18,38 @@ async function getAllWorkspaces() {
 // Update
 async function updateWorkspace(id, updates) {
   const list = await read(path);
+
   const index = list.findIndex(item => item._id === id);
   if (index === -1) throw new Error("Item not found");
 
-  list[index] = { ...list[index], ...updates };
+  const project = list[index];
+
+  for (const key in updates) {
+    const value = updates[key];
+    if (value === undefined) continue;
+    if (Array.isArray(project[key]) && Array.isArray(value)) {
+      value.forEach(newItem => {
+        // בדיקה אם הפריט כבר קיים לפי url/path או name
+        const exists = project[key].some(
+          existing =>
+            (newItem.url && existing.url === newItem.url) ||
+            (newItem.path && existing.path === newItem.path)
+        );
+        if (!exists) {
+          project[key].push(newItem);
+        }
+      });
+    } else {
+      // עדכון שדות רגילים
+      project[key] = value;
+    }
+  }
+
   await write(path, list);
-  return list[index];
+  return project;
 }
+
+
 
 // Delete
 async function removeWorkspace(id) {

@@ -1,4 +1,4 @@
-import { getAllLinks, createLink, updateLinkById, getLinkById, removeLink } from "../dal/crudLink.js";
+import { getAllLinks, createLink, updateLinkByUrl, getLinkById, removeLink } from "../dal/crudLink.js";
 
 
 export async function getLinks(req, res) {
@@ -21,7 +21,7 @@ export async function addLink(req, res) {
 
 export async function updateLink(req, res) {
     try {
-        const updated = await updateLinkById(req.params.id, req.body);
+        const updated = await updateLinkByUrl(req.params.url, req.body);
         res.json(updated);
     } catch (err) {
         res.status(400).json({ error: err.message });
@@ -30,7 +30,7 @@ export async function updateLink(req, res) {
 
 export async function deleteLink(req, res) {
     try {
-        const deleted = await removeLink(req.params.id);
+        const deleted = await removeLink(req.params.url);
         res.json(deleted);
     } catch (err) {
         res.status(400).json({ error: err.message });
@@ -38,7 +38,7 @@ export async function deleteLink(req, res) {
 }
 export async function getLink(req, res) {
     try {
-        const item = await getLinkById(req.params.id);
+        const item = await getLinkById(req.params.url);
         if (!item) {
             return res.status(404).json({ error: "Item not found" });
         }
