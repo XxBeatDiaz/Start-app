@@ -1,11 +1,10 @@
-import { getAll, create, update, remove } from "../dal/crud.js"
+import { getAllPath,createPath,updatePath,removePath,getPathById } from "../dal/crudPath.js";
 
-const filePath = "./db/paths"
 
 
 export async function getPaths(req, res) {
     try {
-        const projects = await getAll(filePath);
+        const projects = await getAllPath();
         res.json(projects);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -14,16 +13,16 @@ export async function getPaths(req, res) {
 
 export async function addPath(req, res) {
     try {
-        const project = await create(filePath, req.body);
+        const project = await createPath(req.body);
         res.status(201).json(project);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
 }
 
-export async function updatePath(req, res) {
+export async function update(req, res) {
     try {
-        const updated = await update(filePath, req.body.id, req.body);
+        const updated = await updatePath(req.params.id, req.body);
         res.json(updated);
     } catch (err) {
         res.status(400).json({ error: err.message });
@@ -32,9 +31,21 @@ export async function updatePath(req, res) {
 
 export async function deletePath(req, res) {
     try {
-        const deleted = await remove(filePath, req.body.id);
+        const deleted = await removePath(req.params.id);
         res.json(deleted);
     } catch (err) {
         res.status(400).json({ error: err.message });
     }
+}
+
+export async function getPath(req, res) {
+    try {
+        const item = await getPathById(req.params.id);
+        if (!item) {
+            return res.status(404).json({ error: "Item not found" });
+        }
+        res.json(item);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }   
 }
