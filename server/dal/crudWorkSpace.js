@@ -1,7 +1,6 @@
 import { write, read } from "./fs.js";
 
-const path = "./db/workspaces.json";
-
+const path = "../server/db/workspaces.json";
 
 // Create
 async function createWorkspace(item) {
@@ -19,7 +18,7 @@ async function getAllWorkspaces() {
 // Update
 async function updateWorkspace(id, updates) {
   const list = await read(path);
-  const index = list.findIndex(item => item.id === id);
+  const index = list.findIndex(item => item._id === id);
   if (index === -1) throw new Error("Item not found");
 
   list[index] = { ...list[index], ...updates };
@@ -29,19 +28,18 @@ async function updateWorkspace(id, updates) {
 
 // Delete
 async function removeWorkspace(id) {
-  let list = await read(path);
-  const index = list.findIndex(item => item.id === id);
-  if (index === -1) throw new Error("Item not found");
-  const [removed] = list.splice(index, 1);
-  await write(path, list);
-  return removed;
+  const list = await read(path);
+  const workspace = list.find(item => item._id == id);
+  if (!workspace) throw new Error("Item not found");
+  const updatedList = list.filter(item => item._id !== id);
+  await write(path, updatedList);
+  return true;
 }
 
 //Get by id
 async function getWorkspaceById(id) {
   const list = await read(path);
-  const item = list.find(i => i.id == id);
-  console.log( "item:", list, id, item);
+  const item = list.find(i => i._id == id);
   if (!item) return false;
   return item;
 }
