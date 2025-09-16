@@ -1,17 +1,17 @@
-import Header from './components/Header';
 import Router from './Router';
 import { ProjectsProvider } from './context/ProjectsContext';
-import "./styles.css"
+import "./styles/AppLayout.css";
+import "./styles/HomePage.css";
+import "./styles/CreateProjectPage.css";
+import "./styles/ProjectPage.css";
+import "./styles/ProjectCard.css";
+
 
 export default function App() {
   return (
     <ProjectsProvider>
-      <div className="app">
-        <Header />
-        <main className="main-content">
-          <Router />
-        </main>
-      </div>
+
+      <Router />
     </ProjectsProvider>
   );
 }
