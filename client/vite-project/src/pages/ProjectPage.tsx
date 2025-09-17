@@ -51,7 +51,7 @@ export default function ProjectPage() {
           <p>No files yet.</p>
         )}
       </section>
-      <section className="card-actions">
+      <section className="card-actions card-actions-project-page">
         <button
           className="btn-secondary small"
           onClick={(e) => {
@@ -64,17 +64,17 @@ export default function ProjectPage() {
           Open all
         </button>
 
-        {project._id && (
-          <button
-            className="danger small"
-            onClick={(e) => {
-              e.preventDefault();
-              deleteProject(project._id!);
-            }}
-          >
-            Delete
-          </button>
-        )}
+
+        <button
+          className="danger small"
+          onClick={(e) => {
+            e.preventDefault();
+            deleteProject(project._id!);
+          }}
+        >
+          Delete
+        </button>
+
       </section>
 
     </div>
