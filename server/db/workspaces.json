@@ -1,22 +1,83 @@
 [
   {
-    "_id": "476c2e88-a154-4bf2-9188-76657c060444",
-    "name": "avi",
-    "description": "aviel",
+    "_id": "proj-music-001",
+    "name": "Music Project",
+    "description": "Collection of music tools and inspiration",
+    "createdAt": 1758051152710,
     "filePaths": [
       {
-        "name": "negev",
-        "path": "C:\\Users\\itzhak\\Desktop\\Codkod\\Negev",
-        "createdAt": 1758035354018
+        "name": "Public Music Folder",
+        "path": "C:\\Users\\Public\\Music",
+        "createdAt": 1758051152710
+      }
+    ],
+    "webLinks": [
+      {
+        "name": "Spotify",
+        "url": "https://www.spotify.com/",
+        "createdAt": 1758051152710
+      },
+      {
+        "name": "YouTube Music",
+        "url": "https://music.youtube.com/",
+        "createdAt": 1758051152710
+      },
+      {
+        "name": "Gmail",
+        "url": "https://gmail.com/",
+        "createdAt": 1758093376925
+      }
+    ],
+    "updatedAt": 1758093959081
+  },
+  {
+    "_id": "proj-knowledge-001",
+    "name": "Knowledge Project",
+    "description": "Learning resources and references",
+    "createdAt": 1758051152710,
+    "filePaths": [
+      {
+        "name": "Shared Documents",
+        "path": "C:\\Users\\Public\\Documents",
+        "createdAt": 1758051152710
+      }
+    ],
+    "webLinks": [
+      {
+        "name": "Wikipedia",
+        "url": "https://www.wikipedia.org/",
+        "createdAt": 1758051152710
+      },
+      {
+        "name": "Khan Academy",
+        "url": "https://www.khanacademy.org/",
+        "createdAt": 1758051152710
+      }
+    ]
+  },
+  {
+    "_id": "proj-general-001",
+    "name": "General Project",
+    "description": "Useful links for everyday browsing",
+    "createdAt": 1758051152710,
+    "filePaths": [
+      {
+        "name": "System Folder",
+        "path": "C:\\Windows\\System32",
+        "createdAt": 1758051152710
       }
     ],
     "webLinks": [
       {
         "name": "Google",
         "url": "https://www.google.com/",
-        "createdAt": 1758035356521
+        "createdAt": 1758051152710
+      },
+      {
+        "name": "YouTube",
+        "url": "https://www.youtube.com/",
+        "createdAt": 1758051152710
       }
-    ],
-    "createdAt": 1758035359250
+    ]
   }
 ]
