@@ -315,3 +315,22 @@ body {
     background: #f1f5f9;
     color: #1e293b;
 }
+
+.search-container {
+  margin: 8px 0 12px;
+}
+
+.search-box {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #f9fafb;
+}
+
+.search-box:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
