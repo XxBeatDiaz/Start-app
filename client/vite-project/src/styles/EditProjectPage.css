@@ -1,0 +1,35 @@
+/* Edit Project Page Styles */
+.edit-project {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+  overflow: hidden; /* prevent inner scroll issues */
+}
+
+.edit-project h1 {
+  margin-bottom: 16px;
+}
+
+.edit-project section {
+  margin-top: 20px;
+}
+
+.edit-project button {
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.edit-project .form-group-inline input {
+  flex: 1;
+}
+
+/* Ensure save bar does not cover fields */
+.edit-project .save-bar {
+  margin-top: 20px;
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: 12px;
+  border-top: 1px solid #ccc;
+  text-align: right;
+}

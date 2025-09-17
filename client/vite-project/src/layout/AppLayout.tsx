@@ -12,7 +12,7 @@ export default function AppLayout() {
                 <div className="logo">
                     <Link to="/">
                         <img src="Logo.png" alt="logo" width={80} />
-                        <h2>Start Ap</h2>
+                        <h2>Start App</h2>
                     </Link>
                 </div>
                 <nav className="projects-nav">
@@ -30,7 +30,7 @@ export default function AppLayout() {
                     )}
                 </nav>
                 <Link to="/create" className="btn-create-project">
-                    <img src="newProject.png" alt="new project" width={50} />
+                    <img src="newProject.png" alt="new project" width={70} />
                 </Link>
             </aside>
 
