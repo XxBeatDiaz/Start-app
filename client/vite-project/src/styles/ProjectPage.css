@@ -4,6 +4,9 @@
   max-width: 900px;
   margin: 0 auto;
   padding: 16px;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
 }
 
 .project-header {
@@ -15,8 +18,24 @@
 
 .project-header h2 {
   margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #4a75b9;
 }
 
-.links-list, .files-list {
+.links-list,
+.files-list {
   margin-top: 20px;
+  min-height: 10rem;
+}
+
+.card-actions-project-page {
+  display: flex;
+  justify-content: space-between; /* מפריד – אחד בצד שמאל ואחד בצד ימין */
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  bottom: 16px;  /* מרווח מהתחתית */
+  left: 16px;    /* מרווח מהצד השמאלי */
+  right: 16px;   /* מרווח מהצד הימני */
 }
