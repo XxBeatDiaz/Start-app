@@ -1,11 +1,9 @@
 [
   {
-
     "_id": "proj-music-001",
     "name": "Music Project",
     "description": "Collection of music tools and inspiration",
     "createdAt": 1758051152710,
-
     "filePaths": [
       {
         "name": "Public Music Folder",
@@ -29,8 +27,7 @@
         "url": "https://gmail.com/",
         "createdAt": 1758093376925
       }
-    ],
-    "updatedAt": 1758093959081
+    ]
   },
   {
     "_id": "proj-knowledge-001",
@@ -72,7 +69,6 @@
     "webLinks": [
       {
         "name": "Google",
-
         "url": "https://www.google.com/",
         "createdAt": 1758051152710
       },
@@ -82,6 +78,186 @@
         "createdAt": 1758051152710
       }
     ]
-
+  },
+  {
+    "_id": "proj-work-001",
+    "name": "Work Project",
+    "description": "Office and productivity tools",
+    "createdAt": 1758135200000,
+    "filePaths": [
+      {
+        "name": "Desktop",
+        "path": "C:\\Users\\Public\\Desktop",
+        "createdAt": 1758135200000
+      }
+    ],
+    "webLinks": [
+      {
+        "name": "Outlook",
+        "url": "https://outlook.office.com/",
+        "createdAt": 1758135200000
+      },
+      {
+        "name": "Google Drive",
+        "url": "https://drive.google.com/",
+        "createdAt": 1758135200000
+      }
+    ]
+  },
+  {
+    "_id": "proj-coding-001",
+    "name": "Coding Project",
+    "description": "Developer resources and tools",
+    "createdAt": 1758135300000,
+    "filePaths": [
+      {
+        "name": "Program Files",
+        "path": "C:\\Program Files",
+        "createdAt": 1758135300000
+      }
+    ],
+    "webLinks": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/",
+        "createdAt": 1758135300000
+      },
+      {
+        "name": "Stack Overflow",
+        "url": "https://stackoverflow.com/",
+        "createdAt": 1758135300000
+      }
+    ]
+  },
+  {
+    "_id": "proj-design-001",
+    "name": "Design Project",
+    "description": "Graphics and design resources",
+    "createdAt": 1758135400000,
+    "filePaths": [
+      {
+        "name": "Pictures",
+        "path": "C:\\Users\\Public\\Pictures",
+        "createdAt": 1758135400000
+      }
+    ],
+    "webLinks": [
+      {
+        "name": "Figma",
+        "url": "https://www.figma.com/",
+        "createdAt": 1758135400000
+      },
+      {
+        "name": "Canva",
+        "url": "https://www.canva.com/",
+        "createdAt": 1758135400000
+      }
+    ]
+  },
+  {
+    "_id": "proj-reading-001",
+    "name": "Reading Project",
+    "description": "Books and reading materials",
+    "createdAt": 1758135500000,
+    "filePaths": [
+      {
+        "name": "Downloads",
+        "path": "C:\\Users\\Public\\Downloads",
+        "createdAt": 1758135500000
+      }
+    ],
+    "webLinks": [
+      {
+        "name": "Project Gutenberg",
+        "url": "https://www.gutenberg.org/",
+        "createdAt": 1758135500000
+      },
+      {
+        "name": "Goodreads",
+        "url": "https://www.goodreads.com/",
+        "createdAt": 1758135500000
+      }
+    ]
+  },
+  {
+    "_id": "proj-finance-001",
+    "name": "Finance Project",
+    "description": "Financial tools and resources",
+    "createdAt": 1758135600000,
+    "filePaths": [
+      {
+        "name": "Temp Folder",
+        "path": "C:\\Users\\Public\\Temp",
+        "createdAt": 1758135600000
+      }
+    ],
+    "webLinks": [
+      {
+        "name": "Yahoo Finance",
+        "url": "https://finance.yahoo.com/",
+        "createdAt": 1758135600000
+      },
+      {
+        "name": "TradingView",
+        "url": "https://www.tradingview.com/",
+        "createdAt": 1758135600000
+      }
+    ]
+  },
+  {
+    "_id": "proj-news-001",
+    "name": "News Project",
+    "description": "News and media sources",
+    "createdAt": 1758135700000,
+    "filePaths": [
+      {
+        "name": "Videos",
+        "path": "C:\\Users\\Public\\Videos",
+        "createdAt": 1758135700000
+      }
+    ],
+    "webLinks": [
+      {
+        "name": "BBC News",
+        "url": "https://www.bbc.com/news",
+        "createdAt": 1758135700000
+      },
+      {
+        "name": "Reuters",
+        "url": "https://www.reuters.com/",
+        "createdAt": 1758135700000
+      },
+      {
+        "name": "JKL",
+        "url": "N,MN",
+        "createdAt": 1758135517300
+      }
+    ],
+    "updatedAt": 1758135524509
+  },
+  {
+    "_id": "proj-health-001",
+    "name": "Health Project",
+    "description": "General wellness and health references",
+    "createdAt": 1758135800000,
+    "filePaths": [
+      {
+        "name": "Public Folder",
+        "path": "C:\\Users\\Public",
+        "createdAt": 1758135800000
+      }
+    ],
+    "webLinks": [
+      {
+        "name": "WebMD",
+        "url": "https://www.webmd.com/",
+        "createdAt": 1758135800000
+      },
+      {
+        "name": "Mayo Clinic",
+        "url": "https://www.mayoclinic.org/",
+        "createdAt": 1758135800000
+      }
+    ]
   }
 ]
