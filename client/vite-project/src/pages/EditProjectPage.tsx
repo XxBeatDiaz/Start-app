@@ -75,23 +75,23 @@ export default function EditProjectPage() {
       </div>
 
       <section className="edit-links">
-        <h3>Links <button type="button" onClick={handleAddLink}>➕</button></h3>
+        <h3>Links <button type="button" onClick={handleAddLink}><img src="plus.png" alt="plus" width={30} /></button></h3>
         {links.map(l => (
           <div key={l._uid} className="form-group-inline">
             <input type="text" placeholder="Name" value={l.name} onChange={e => { setLinks(prev => prev.map(x => x._uid === l._uid ? { ...x, name: e.target.value } : x)); setChanged(true); }} />
             <input type="url" placeholder="URL" value={l.url} onChange={e => { setLinks(prev => prev.map(x => x._uid === l._uid ? { ...x, url: e.target.value } : x)); setChanged(true); }} />
-            <button type="button" onClick={() => handleRemoveLink(l._uid)}>➖</button>
+            <button type="button" onClick={() => handleRemoveLink(l._uid)}><img src="minus.png" alt="minus" width={30} /></button>
           </div>
         ))}
       </section>
 
       <section className="edit-files">
-        <h3>Files <button type="button" onClick={handleAddFile}>➕</button></h3>
+                <h3>Files <button type="button" onClick={handleAddFile}><img src="plus.png" alt="plus" width={30} /></button></h3>
         {files.map(f => (
           <div key={f._uid} className="form-group-inline">
             <input type="text" placeholder="Name" value={f.name} onChange={e => { setFiles(prev => prev.map(x => x._uid === f._uid ? { ...x, name: e.target.value } : x)); setChanged(true); }} />
             <input type="text" placeholder="Path" value={f.path} onChange={e => { setFiles(prev => prev.map(x => x._uid === f._uid ? { ...x, path: e.target.value } : x)); setChanged(true); }} />
-            <button type="button" onClick={() => handleRemoveFile(f._uid)}>➖</button>
+            <button type="button" onClick={() => handleRemoveFile(f._uid)}> <img src="minus.png" alt="minus" width={30} /></button>
           </div>
         ))}
       </section>

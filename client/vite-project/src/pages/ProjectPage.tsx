@@ -63,7 +63,16 @@ export default function ProjectPage() {
         >
           Open all
         </button>
-
+        <div className="project-dates">
+          <small>
+            Created: {new Date(project.createdAt).toLocaleString()}
+          </small>
+          {project.updatedAt && (
+            <small>
+              {" | "}Updated: {new Date(project.updatedAt).toLocaleString()}
+            </small>
+          )}
+        </div>
 
         <button
           className="danger small"

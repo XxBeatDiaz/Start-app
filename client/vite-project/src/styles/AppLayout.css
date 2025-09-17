@@ -155,8 +155,8 @@ body {
 /* Create project button */
 .btn-create-project {
     margin: 20px;
-    padding: 16px;
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    padding: 8px;
+    background: linear-gradient(135deg, #25abfa 0%, #1d4ed8 100%);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -256,8 +256,8 @@ body {
         max-height: 200px;
     }
     
-    .projects-nav {
-        max-height: 120px;
+    .btn-create-project, .projects-nav { 
+        display: none;
     }
     
     .main-content {

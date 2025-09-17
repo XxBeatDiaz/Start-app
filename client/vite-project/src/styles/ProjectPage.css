@@ -39,3 +39,18 @@
   left: 16px;    /* מרווח מהצד השמאלי */
   right: 16px;   /* מרווח מהצד הימני */
 }
+
+
+.project-dates {
+  margin-top: 8px;
+  color: #64748b;   
+  font-size: 20px;
+  font-style: italic; 
+}
+
+
+@media (max-width: 768px) {
+  .project-dates {
+    display: none;
+  }
+}

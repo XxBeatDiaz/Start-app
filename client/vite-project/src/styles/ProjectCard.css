@@ -191,8 +191,7 @@
     }
 
     .card-actions {
-        flex-direction: column;
-        gap: 6px;
+        gap: 12px;
     }
 
     .card-actions button {
