@@ -23,13 +23,38 @@
   flex: 1;
 }
 
-/* Ensure save bar does not cover fields */
+
 .edit-project .save-bar {
-  margin-top: 20px;
   position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   bottom: 0;
-  background: #fff;
-  padding: 12px;
+  /* background: #fff;
+  padding: 12px; */
   border-top: 1px solid #ccc;
   text-align: right;
+}
+
+.edit-files button, .edit-links button {
+  background: none;       /* בלי רקע */
+  border: none;           /* בלי גבול */
+  padding: 0;             /* מסיר רווחים פנימיים */
+  margin: 0;              /* מסיר רווחים חיצוניים */
+  cursor: pointer;        /* סמן עכבר הופך ליד */
+  line-height: 0;         /* שלא יהיה רווח סביב התמונה */
+}
+
+.edit-files button img, .edit-links button img {
+  display: block;         /* מסיר רווח מתחת לתמונה */
+}
+.edit-links h3 {
+  display: flex;
+  align-items: center;  /* מיישר את הטקסט והכפתור לאותו קו */
+  gap: 8px;             /* רווח קטן בין הטקסט לכפתור */
+}
+.edit-files h3 {
+  display: flex;
+  align-items: center;  /* מיישר את הטקסט והכפתור לאותו קו */
+  gap: 8px;             /* רווח קטן בין הטקסט לכפתור */
 }

@@ -19,12 +19,15 @@ export default function AppLayout() {
                     <h3>Your Projects</h3>
                     {projects.length > 0 ? (
                         <ul>
-                            {projects.map((p) => (
-                                <li key={p._id}>
-                                    <Link to={`/projects/${p._id}`}>{p.name}</Link>
-                                </li>
-                            ))}
+                            {[...projects] // עושים עותק כדי לא לשנות את ה-state
+                                .sort((a, b) => b.createdAt - a.createdAt) // ממיין מהחדש לישן
+                                .map((p) => (
+                                    <li key={p._id}>
+                                        <Link to={`/projects/${p._id}`}>{p.name}</Link>
+                                    </li>
+                                ))}
                         </ul>
+
                     ) : (
                         <p className="muted">No projects yet</p>
                     )}
