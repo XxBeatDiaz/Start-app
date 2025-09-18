@@ -20,7 +20,7 @@ export async function createProjectApi(p: Project): Promise<Project> {
 
 export async function updateProjectApi(p: Project): Promise<Project> {
   const res = await fetch(`${BASE_URL}/update/${p._id}`, {
-    method: 'PATCH',
+    method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(p),
   });

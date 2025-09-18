@@ -52,12 +52,12 @@ export default function CreateProjectPage() {
       <form onSubmit={submit}>
         <div className="form-group">
           <label>Project name</label>
-          <input type="text" placeholder="Project name" value={name} onChange={e => setName(e.target.value)} />
+          <input type="text" placeholder="Project name" required maxLength={20} value={name} onChange={e => setName(e.target.value)} />
         </div>
 
         <div className="form-group">
           <label>Description</label>
-          <textarea placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} />
+          <textarea placeholder="Description" value={description} maxLength={60} onChange={e => setDescription(e.target.value)} />
         </div>
 
         <div className="section">

@@ -59,8 +59,8 @@ body {
 }
 
 .sidebar .logo h2 {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 30px;
+    font-weight: 750;
     color: #1e293b;
     margin: 0;
 }
@@ -155,8 +155,8 @@ body {
 /* Create project button */
 .btn-create-project {
     margin: 20px;
-    padding: 16px;
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    padding: 8px;
+    background: linear-gradient(135deg, #25abfa 0%, #1d4ed8 100%);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -256,8 +256,8 @@ body {
         max-height: 200px;
     }
     
-    .projects-nav {
-        max-height: 120px;
+    .btn-create-project, .projects-nav { 
+        display: none;
     }
     
     .main-content {
@@ -314,4 +314,23 @@ body {
 .btn-secondary:hover {
     background: #f1f5f9;
     color: #1e293b;
+}
+
+.search-container {
+  margin: 8px 0 12px;
+}
+
+.search-box {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #f9fafb;
+}
+
+.search-box:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }

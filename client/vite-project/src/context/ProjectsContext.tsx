@@ -7,6 +7,9 @@ import {
   updateProjectApi,
 } from '../api/projects';
 
+import { useNavigate } from 'react-router';
+
+
 type ProjectsContextType = {
   projects: Project[];
   addProject: (p: Project) => Promise<void>;
@@ -19,6 +22,8 @@ const ProjectsContext = createContext<ProjectsContextType | undefined>(undefined
 
 export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [projects, setProjects] = useState<Project[]>([]);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const load = async () => {
@@ -45,6 +50,7 @@ export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     try {
       await deleteProjectApi(id);
       setProjects(prev => prev.filter(p => p._id !== id));
+      navigate(`/`);
     } catch (err) {
       console.error('Failed to delete project:', err);
     }

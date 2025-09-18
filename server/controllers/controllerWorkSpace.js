@@ -1,4 +1,12 @@
-import {removeWorkspace,createWorkspace,getWorkspaceById,updateWorkspace,getAllWorkspaces } from "../dal/crudWorkSpace.js"
+import {
+    removeWorkspace,
+    createWorkspace,
+    getWorkspaceById,
+    updateWorkspace,
+    getAllWorkspaces,
+}
+    from "../dal/crudWorkSpace.js"
+
 
 
 export async function getProjects(req, res) {
@@ -30,7 +38,7 @@ export async function updateProject(req, res) {
 
 export async function deleteProject(req, res) {
     try {
-        const {id} = req.params;     
+        const { id } = req.params;
         const deleted = await removeWorkspace(id);
         res.json(deleted);
     } catch (err) {
@@ -48,5 +56,6 @@ export async function getWorkspace(req, res) {
         res.json(item);
     } catch (err) {
         res.status(500).json({ error: err.message });
-    }  
+    }
 }
+
