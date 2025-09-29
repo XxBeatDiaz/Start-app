@@ -19,5 +19,3 @@ const PORT = 3131;
 export default function startServer() {
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }
-
-startServer();

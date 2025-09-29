@@ -233,7 +233,7 @@
         "createdAt": 1758135517300
       }
     ],
-    "updatedAt": 1758135524509
+    "updatedAt": 1758389076877
   },
   {
     "_id": "proj-health-001",
@@ -259,5 +259,66 @@
         "createdAt": 1758135800000
       }
     ]
+  },
+  {
+    "_id": "849b07df-de87-4b56-8793-383f79b2c634",
+    "name": "Start-App",
+    "description": "An application for lifting a workspace with one click.",
+    "filePaths": [
+      {
+        "name": "Start App File",
+        "path": "C:\\Users\\itzhak\\Desktop\\Start-app ",
+        "createdAt": 1758176935560
+      },
+      {
+        "name": "MainJS",
+        "path": "C:\\Users\\itzhak\\Desktop\\Start-app\\electron\\main.js",
+        "createdAt": 1758177134368
+      },
+      {
+        "name": "PreloadJS",
+        "path": "C:\\Users\\itzhak\\Desktop\\Start-app\\electron\\preload.js",
+        "createdAt": 1758177844096
+      }
+    ],
+    "webLinks": [
+      {
+        "name": "Google translate",
+        "url": "https://translate.google.com/?sl=iw&tl=en&op=translate",
+        "createdAt": 1758178076427
+      },
+      {
+        "name": "Google",
+        "url": "https://www.google.com/",
+        "createdAt": 1758178115591
+      },
+      {
+        "name": "Start app git",
+        "url": "https://github.com/XxBeatDiaz/Start-app",
+        "createdAt": 1758178147717
+      },
+      {
+        "name": "Chat gpt",
+        "url": "https://chatgpt.com/",
+        "createdAt": 1758178190756
+      },
+      {
+        "name": "W3schools React",
+        "url": "https://www.w3schools.com/react/",
+        "createdAt": 1758178240272
+      },
+      {
+        "name": "סרטון שמסביר על הספרייה אלקטרון",
+        "url": "https://www.youtube.com/watch?v=kBtYon8KmdU&t=722s",
+        "createdAt": 1758178776096
+      },
+      {
+        "name": "Classroom Negev",
+        "url": "https://classroom.google.com/c/Nzg3ODQ5OTEzNjUw",
+        "createdAt": 1758179107307
+      }
+    ],
+    "createdAt": 1758176915711,
+    "updatedAt": 1758499132277
   }
 ]
